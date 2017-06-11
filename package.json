@@ -1,0 +1,45 @@
+{
+  "name": "JSTest-Canvas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "es2016"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mwarukason/JSTest-Canvas.git"
+  },
+  "keywords": [],
+  "author": "Amri Shabani Mwaruka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mwarukason/JSTest-Canvas/issues"
+  },
+  "homepage": "https://github.com/Mwarukason/JSTest-Canvas#readme",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.23.0",
+    "file-loader": "^0.11.2",
+    "image-webpack-loader": "^3.3.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "junk": "^2.1.0",
+    "multer": "^1.3.0"
+  }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JSTest-Canvas</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/jquery.form.min.js"></script>
+    <script>
+        $(document).ready( () => {
+            let options = {
+                beforeSubmit: showRequest,  // pre-submit callback
+                success: showResponse  // post-submit callback
+            };
+            // bind to the form's submit event
+            $('#frmUploader').submit(() => {
+                $(this).ajaxSubmit(options);
+                // always return false to prevent standard browser submit and page navigation
+                return false;
+            });
+        });
+        // pre-submit callback
+        function showRequest(formData, jqForm, options) {
+            alert('Uploading is starting.');
+            return true;
+        }
+        // post-submit callback
+        function showResponse(responseText, statusText, xhr, $form) {
+            alert('status: ' + statusText + '\n\nresponseText: \n' + responseText );
+        }
+    </script>
+  </head>
+  <body>
+    <!-- side pane -->
+      <div class="sidepane col-sm-2 col-md-2 col-lg-2 col">
+        <div class="form">
+          <h3 class="wcol">FORM</h3>
+          <form id="frmUploader" class="form" enctype="multipart/form-data" method="post">
+            <input type="file" class="form-control btc" placeholder="Upload your image" name="imgUploader" multiple />
+            <input type="submit" class="btn btn-default btc" name="submit" id="btnSubmit" value="UPLOAD" />
+          <!-- Upload Form here -->
+          </form>
+        </div>
+        <hr />
+        <div class="assets">
+          <h3 class="wcol">Assets</h3>
+          <div class="text">
+              <h4 class="wcol">Text</h4>
+              <button id="addText" class="btn btn-default btc">ADD TEXT</button>
+          </div>
+          <div class="image">
+              <h4>Images</h4>
+              <ul class="list-unstyled mgl">
+                  <!-- List of images here -->
+                  <img src=`../images/${file.fieldname + "_" + Date.now() + "_" + file.originalname}` alt="">
+                  <!-- <li><img src="images/sample.jpeg" class="img-rounded" /></li> -->
+              </ul>
+          </div>
+        </div>
+      </div>
+      <!-- canvas -->
+      <div class="canvas col-sm-8 col-md-8 col-lg-8 bak">
+          <div class="block">
+              <!-- Add images and texts to here -->
+          </div>
+      </div>
+  <script type="text/javascript" src="bundle.js"></script>
+  </body>
+</html>
